@@ -1,7 +1,12 @@
 import React from "react";
 import { Measurements, AveragedMeasurements } from "../types";
-import { IoMdRefresh } from "react-icons/io";
 import { SlRefresh } from "react-icons/sl";
+import type { TabsProps } from "antd";
+import { Tabs } from "antd";
+import { KbdIcon, GraphIcon } from "../assets/icons";
+
+import KeyboardStats from "./KeyboardStats";
+import GraphStats from "./GraphStats";
 
 interface ResultsProps {
   restartHandler: () => void;
@@ -34,6 +39,46 @@ const calculateTotalAverage = (averages: AveragedMeasurements) => {
 };
 
 const Results: React.FC<ResultsProps> = ({ restartHandler, data }) => {
+  const items: TabsProps["items"] = [
+    {
+      key: "keyboard",
+      label: (
+        <span>
+          <KbdIcon />
+        </span>
+      ),
+      children: <KeyboardStats data={calculateAverages(data)} />,
+    },
+    {
+      key: "graphs",
+      label: (
+        <span>
+          <GraphIcon />
+        </span>
+      ),
+      children: <GraphStats />,
+    },
+  ];
+  if (Object.keys(data).length === 0) {
+    return (
+      <div className="results">
+        <h1 className="welcome">Results</h1>
+        <h2 className="welcome">
+          No data collected!
+          <button
+            className="inline-button"
+            onClick={() => {
+              restartHandler();
+            }}
+          >
+            {" "}
+            Try again?
+          </button>
+        </h2>
+      </div>
+    );
+  }
+
   return (
     <div className="results">
       <h1 className="welcome">
@@ -43,13 +88,17 @@ const Results: React.FC<ResultsProps> = ({ restartHandler, data }) => {
           onClick={() => {
             restartHandler();
           }}
-        > <SlRefresh />
+        >
+          {" "}
+          <SlRefresh />
         </button>
       </h1>
       <h2 className="welcome">
         Total average:{" "}
         {calculateTotalAverage(calculateAverages(data)).toFixed(0)}ms
       </h2>
+
+      <Tabs centered items={items} size={"large"} />
     </div>
   );
 };

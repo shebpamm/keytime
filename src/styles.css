@@ -5,7 +5,9 @@
   font-weight: 400;
 
   color: #fafafa;
+  --color: #fafafa;
   background-color: #222321;
+  --background-color: #222321;
   --primary: #eac588;
  
 

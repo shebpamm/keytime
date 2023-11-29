@@ -1,0 +1,8 @@
+import Icon from '@ant-design/icons';
+import type { CustomIconComponentProps } from '@ant-design/icons/lib/components/Icon';
+
+const GraphSvg = () => (<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M0 0h1v15h15v1H0V0Zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07Z"></path></svg>)
+const KbdSvg = () => (<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><g id="Keyboard"><g><path d="M19.437,18.5H4.562a2.5,2.5,0,0,1-2.5-2.5V8a2.5,2.5,0,0,1,2.5-2.5H19.437a2.5,2.5,0,0,1,2.5,2.5v8A2.5,2.5,0,0,1,19.437,18.5ZM4.562,6.5A1.5,1.5,0,0,0,3.062,8v8a1.5,1.5,0,0,0,1.5,1.5H19.437a1.5,1.5,0,0,0,1.5-1.5V8a1.5,1.5,0,0,0-1.5-1.5Z"></path><path d="M5.548,16.5h12.9a.5.5,0,0,0,0-1H5.548a.5.5,0,0,0,0,1Z"></path><g><circle cx="5.82" cy="9.248" r="0.75"></circle><circle cx="9.94" cy="9.248" r="0.75"></circle><circle cx="14.06" cy="9.248" r="0.75"></circle><circle cx="18.18" cy="9.248" r="0.75"></circle></g><g><circle cx="5.82" cy="12.998" r="0.75"></circle><circle cx="9.94" cy="12.998" r="0.75"></circle><circle cx="14.06" cy="12.998" r="0.75"></circle><circle cx="18.18" cy="12.998" r="0.75"></circle></g></g></g></svg>)
+
+export const KbdIcon = (props: Partial<CustomIconComponentProps>) => ( <Icon component={KbdSvg} {...props} /> );
+export const GraphIcon = (props: Partial<CustomIconComponentProps>) => ( <Icon component={GraphSvg} {...props} /> );
